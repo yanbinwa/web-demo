@@ -35,6 +35,9 @@ webpack-dev-server
 ```
 ### using node server
 ```
+# build client static file
+webpack
+
 # in one terminal
 npm start
 # open other termianl and run

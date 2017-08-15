@@ -1,0 +1,61 @@
+// VARIABLES
+$color_background: #f9fafa;
+$color_select: #4e65b0;
+$color_tab: #888888;
+$width_tab: 60px;
+$width_responsive: 420px;
+$height_tab: 55px;
+$row_item: 5;
+
+
+@mixin tabs() {
+
+    height: auto;
+    background-color: $color_background;
+
+    display: flex;
+    justify-content:space-between;
+
+    & .tab {
+      display: inline-flex;
+      justify-content:center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 4px;
+      width: $width_tab;
+      height: $height_tab;
+      color: $color_tab;
+      font-size: 12px;
+      cursor: pointer;
+      & .top {
+        margin-bottom: 4px;
+      }
+      & .bottom {
+
+      }
+    }
+    & .tab:hover {
+      border:  2px solid $color_select;
+      border-radius: 8px;
+      color: $color_select;
+    }
+    & .focus {
+      border:  2px solid $color_select;
+      border-radius: 8px;
+      color: $color_select;
+    }
+
+}
+@media only screen and (min-width: $width_responsive) {
+  .tabs{
+    padding: 6px 12.5% 3px 12.5%;
+    @include tabs();
+  }
+}
+@media only screen and (max-width: $width_responsive) {
+  .tabs{
+    padding: 6px 0 3px 0;
+    text-align: center;
+    @include tabs();
+  }
+}

@@ -1,0 +1,141 @@
+// VARIABLES
+$width_responsive: 770px;
+
+$height_app: 100px;
+$height_title: 60px;
+$height_input: 80px;
+$height_input_mb: 60px;
+$color_background: white;
+$color_border: rgba(0, 0, 0, .10);;
+
+@mixin cal-height() {
+
+}
+
+@mixin message_box($float, $color, $bg_color) {
+  margin: 5px;
+  height: auto;
+  text-align: $float;
+  display: block;
+  float: $float;
+  width: 100%;
+
+  div {
+    font-size: 16px;
+    float: $float;
+    word-wrap: break-word;
+    text-align: $float;
+    max-width: 65%;
+    border: transparent solid 1px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: $bg_color;
+    color: $color;
+  }
+}
+
+@mixin input_field($height) {
+  .cg-input {
+    display:inline-flex;
+    position: relative;
+    width: 100%;
+    height: $height;
+
+    .submit-btn {
+      flex: 1 1 50px;
+      text-align: center;
+      line-height: $height;
+      height: $height;
+      border-left: $color_border solid 1px;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 18px;
+      color: #286090;
+    }
+    .disabled {
+      color: #7b7b7b;
+    }
+    .submit-btn:hover {
+      font-size: 17px;
+      // color: #286090;
+    }
+    textarea {
+      flex: 1 30 90%;
+      font-size: 16px;
+      width: 100%;
+      height: 100%;
+      padding: 10px 15px;
+      resize: none;
+      border: transparent;
+    }
+    textarea:focus {
+      outline: none !important;
+      border: transparent;
+      box-shadow: 0;
+    }
+  }
+}
+
+@mixin chat_content($spaces, $h_input) {
+  .cg-chat {
+    position: relative;
+    border-bottom: $color_border solid 1px;
+    height: calc(100% - #{$height_title} - #{$h_input} - 3px);
+    padding: 0 $spaces;
+
+    .messages {
+      overflow-y: scroll;
+      height: 100%;
+      padding: 0 20px;
+
+      .owner {
+        @include message_box(right, white, #5572b4);
+      }
+      .other {
+        @include message_box(left, black, #ccc);
+      }
+    }
+  }
+}
+
+.cg-body{
+  position: absolute;
+  height: 100%;;
+  width: 100%;
+}
+
+
+.cg-content{
+  @media only screen and (min-width: $width_responsive) {
+    padding: 0 20% 0px 20%;
+    background: url('../images/img_header.png');
+
+    .cg-wrapper {
+      border: $color_border solid 1px;
+      background: white;
+    }
+  }
+  .cg-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  background: white;
+  width: 100%;
+
+  .cg-title {
+    height: $height_title;
+    border-bottom: $color_border solid 1px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+  }
+  @media only screen and (min-width: $width_responsive) {
+    @include chat_content(5%, $height_input);
+    @include input_field($height_input);
+  }
+  @media only screen and (max-width: $width_responsive) {
+    @include chat_content(0, $height_input_mb);
+    @include input_field($height_input_mb);
+  }
+}

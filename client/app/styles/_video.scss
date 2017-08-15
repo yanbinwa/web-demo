@@ -1,0 +1,49 @@
+video {
+  width: 100%;
+  max-height: 450px;
+}
+
+.vitem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.vitem:hover {
+  color: #5069b2;
+}
+
+.mini-stat {
+
+}
+
+.mini-stat-icon {
+
+  width: 60px;
+  background: #5068b2;
+  height: 60px;
+  display: inline-block;
+  line-height: 60px;
+  text-align: center;
+  font-size: 30px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  /* float: left; */
+  margin-right: 10px;
+  color: #fff;
+}
+
+.mini-stat-info {
+  width: 70%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.mini-stat-info span {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+}

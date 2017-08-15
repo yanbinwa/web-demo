@@ -1,0 +1,125 @@
+@import "header";
+@import "tabs";
+@import "video";
+@import "cg";
+
+// VARIABLES
+$height_footer: 65px;
+
+$size_footer: 11px;
+$size_btn_cancel: 20px;
+
+$color_grey: #EFEFEF;
+$color_footer: #dfe0e3;
+$color_cancel: #4e65b0;
+
+html, body{
+  background: $color_grey;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace, "Helvetica Neue",Helvetica,Arial,sans-serif,'微软雅黑','黑体' !important;
+}
+
+#root, #root>divs {
+  height: 100%;
+}
+#main {
+  width: 100%;
+  height: calc(100% - 70px);    /* changed to make up for header */
+}
+.min-full-height {
+  position: relative;
+  min-height: 100%;
+  // height: inherit;
+  background: $color_grey;
+}
+.full-height {
+  height: 100% !important;
+}
+.has-footer {
+  height: calc(100% - 70px) !important;
+}
+.has-footer-sm {
+  height: calc(100% - 70px) !important;
+}
+
+.table{
+  border-collapse: collapse;
+  margin-top: 30px;;
+}
+
+.table p{
+  line-height:50px;
+  border: none;
+  margin: 0;
+  width:100%;
+  padding-left: 20px;
+  color:#000;
+  vertical-align: middle;
+}
+
+.table  tr{
+  background: #fff;
+}
+
+.block {
+  display: block;
+}
+.zero-padding{
+  padding: 0;
+}
+.json-target{
+  height:750px;
+  padding:20px;
+  border-right:solid 1px #ddd;
+  border-bottom:solid 1px #ddd;
+  border-radius:0;
+  resize: none;
+  overflow-y:scroll;
+  outline:none;
+}
+
+.hide {
+  display: none;
+}
+
+.center{
+  text-align: center;
+}
+
+.table>tbody>tr>td{
+  padding:0px;
+  border:1px solid #d4d4d4;
+  width: 50%;;
+  height: 50px;
+  font-size:18px;
+}
+
+.footer-theme{
+  position: absolute;
+  width: 100%;
+  height: $height_footer;
+  padding: 15px 40px;
+  bottom: 0px;
+  color: $color_footer;
+  text-align:center;
+  font-size: $size_footer;
+  // color:#999;#5364ab    #3e52a3
+  background: -webkit-linear-gradient(left,#5364ab,#3e52a3);
+  background: -o-linear-gradient(right,#5364ab,#3e52a3);
+  background: -moz-linear-gradient(right,#5364ab,#3e52a3);
+  background: linear-gradient(to right,#5364ab,#3e52a3);
+}
+
+.body{
+  overflow:hidden;
+  margin-bottom: 50px;
+
+}
+
+.result-block {
+  height: 100%;
+  margin: 10px 12.5% 30px 12.5%;
+  overflow: scroll;
+}
