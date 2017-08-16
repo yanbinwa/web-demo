@@ -28,8 +28,4 @@ module.exports = (function() {
     publicFiles: process.env.PUBLIC_FILES || '/usr/src/app/public_files'
   };
 
-  /**
-   * Functions
-   */
-
 })();
