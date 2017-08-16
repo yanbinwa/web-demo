@@ -25,7 +25,13 @@ module.exports = (function() {
 
   return {
     port: process.env.PORT || 8080,
-    publicFiles: process.env.PUBLIC_FILES || '/usr/src/app/public_files'
+    targetHostOrIP: process.env.TARGET_HOST_OR_IP || 'localhost',
+    chiqParserPort: process.env.CHIQ_PARSER_PORT || 12404,
+    commonParserPort: process.env.COMMON_PARSER_PORT || 14901,
+    controllerPort: process.env.CONTROLLER_PORT || 11180,
+    intentPort: process.env.INTENT_PORT || 14399,
+    NLUPort: process.env.NLU_PORT || 13901,
+    APPID: process.env.APPID || 1
   };
 
 })();

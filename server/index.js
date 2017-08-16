@@ -7,11 +7,10 @@
   'use strict';
   const express = require('express');
   const bodyParser = require('body-parser');
-  const config = require('./config');
+  const config = require('./config/index');
   var router = require('./router');
 
   var cluster = require('cluster');
-
 
   if (cluster.isMaster) {
     var cpuCount = require('os').cpus().length;
@@ -29,7 +28,7 @@
      * Global Constants
      */
     const CLIENT_PATH = './client/build/';
-    const PORT = 8080;
+    const PORT = config.port;
     /**
      * Main
      */

@@ -1,16 +1,17 @@
 (function() {
   var express = require('express');
   var router = express.Router();
+  const config = require('./config/index');
   const request = require('superagent');
   const async = require('async');
 
-  const TARGET_HOST = '172.16.101.61';
-  const CHIQ_PARSER_PORT = '12404';
-  const COMMON_PARSER_PORT = '14901';
-  const CONTROLLER_PORT = '11180';
-  const INTENT_PORT = '14399';
-  const NLU_PORT = '13901';
-  const APPID = '5a200ce8e6ec3a6506030e54ac3b970e';
+  const TARGET_HOST = config.targetHostOrIP;
+  const CHIQ_PARSER_PORT = config.chiqParserPort;
+  const COMMON_PARSER_PORT = config.commonParserPort;
+  const CONTROLLER_PORT = config.controllerPort;
+  const INTENT_PORT = config.intentPort;
+  const NLU_PORT = config.NLUPort;
+  const APPID = config.APPID;
 
   const CHIQ_PARSER_BASE_URL = 'http://' + TARGET_HOST + ":" + CHIQ_PARSER_PORT;
   const CHIQ_PARSER_VIDEO_URL = CHIQ_PARSER_BASE_URL + "/video-parser";

@@ -24,7 +24,6 @@ class Home extends Component {
     super(props);
     this.onInputChange = this.onInputChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.searchClick = this.searchClick.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.state = {
       inputValue: '',
@@ -34,11 +33,15 @@ class Home extends Component {
     };
   }
 
-  searchClick() {
+  searchClick(filter) {
     var filterTag = this.state.selected;
     if (this.state.inputValue == null || this.state.inputValue == "")
     {
       return;
+    }
+    if (filter != null)
+    {
+      filterTag = filter;
     }
     this.setState({isLoading: true});
     switch(filterTag)
@@ -84,12 +87,13 @@ class Home extends Component {
 
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      this.searchClick();
+      this.searchClick(null);
     }
   }
 
   handleFilter(filter, e) {
     this.setState({selected: filter});
+    this.searchClick(filter);
   }
 
   renderTabs() {
@@ -125,7 +129,7 @@ class Home extends Component {
             </div>
           </div>
           <div className="submit-elem">
-            <div className="submit-btn" onClick={this.searchClick}>查询</div>
+            <div className="submit-btn" onClick={this.searchClick.bind(this, null)}>查询</div>
           </div>
         </div>
       </div>
@@ -159,7 +163,6 @@ class Home extends Component {
     )
   }
 }
-// <JSONTree data={ this.state.filteredText } shouldExpandNode={(key) => true} sortObjectKeys={(a, b) => {if (a === 'type' || a === 'version') return 1; return -1;}} hideRoot={true}/>
 Home.propTypes = {
 
 };
